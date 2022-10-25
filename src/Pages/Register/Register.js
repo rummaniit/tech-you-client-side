@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Authprovider/Authprovider';
 
 const Register = () => {
-    let { createUser } = useContext(AuthContext)
+    let { createUser, updatePersonProfile, setErrors, verifyEmail } = useContext(AuthContext)
     let handleRegister = (e) => {
         e.preventDefault()
         let form = e.target
@@ -13,13 +13,38 @@ const Register = () => {
         let password = form.password.value
         let photoURL = form.photoURL.value
         console.log(name, email, password, photoURL);
-        createUser(email, password, name, photoURL)
+        createUser(email, password)
             .then(result => {
-                const user = result.user
-            }).catch(error => {
+                const users = result.user
+                // form.reset()
+                setErrors('')
+                handleEmailVerification()
+                handleProfileUpdate(name, photoURL)
+                console.log(users);
+                form.reset()
+            })
+            .catch(error => {
                 console.log(error.message);
             })
-        form.reset()
+
+    }
+    let handleProfileUpdate = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updatePersonProfile(profile)
+            .then(result => {
+
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
+    let handleEmailVerification = () => {
+        verifyEmail().then(result => {
+
+        }).catch(error => console.log(error.message))
     }
     return (
         <div>
@@ -42,7 +67,7 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" name='email' placeholder="email" className="input input-bordered" />
+                                    <input type="email" name="email" placeholder="email" className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -61,7 +86,7 @@ const Register = () => {
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-primary">Login</button>
+                                    <button className="btn btn-primary">Register</button>
                                 </div>
                             </div>
                         </div>

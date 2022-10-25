@@ -1,25 +1,56 @@
+// import { error } from 'daisyui/src/colors';
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Authprovider/Authprovider';
 // import image from '../../../images/logoedu.jpg'
 
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    let [hover, setHover] = useState(false)
+    const { users, logOut } = useContext(AuthContext)
+    console.log(users);
+    let handleLogout = () => {
+        logOut().then(() => {
 
+        }).catch(error => {
+
+        })
+    }
+    let imgStyle = {
+        width: '80px',
+        borderRadius: '50%'
+    }
     return (
         <div className='p-8'>
-            <nav className='flex justify-between items-center'>
+            <nav className='flex justify-around items-center'>
                 <div className='flex justify-start items-center'>
                     <Link to='/'><h2 className="text-4xl">Teach You.com</h2></Link>
                 </div>
-                <div className='mr-8'>
+                <div>
+                    {
+                        users ? <img src={users.photoURL} title={users.displayName} style={{
+                            width: '80px',
+                            borderRadius: '50%',
+                        }} alt="" /> : ''
+                    }
+                </div>
+                <div className='mr-2'>
                     <Link className='text-xl p-3' to='/'>Home</Link>
                     <Link className='text-xl p-3' to='/courses'>Courses</Link>
                     <Link className='text-xl p-3' to='/faq'>Faq</Link>
                     <Link className='text-xl p-3' to='/blog'>Blog</Link>
-                    <Link className='text-xl p-3' to='/login'>Login</Link>
-                    <Link className='text-xl p-3' to='/register'>Register</Link>
+                    {
+                        users ?
+                            <>
+                                {/* <img src={users.photoURL} style={imgStyle} alt="" /> */}
+                                <Link className='text-xl p-3' onClick={handleLogout}>Log Out</Link>
+                            </> :
+                            <>
+                                <Link className='text-xl p-3' to='/login'>Login</Link>
+                                <Link className='text-xl p-3' to='/register'>Register</Link>
+                            </>
+                    }
 
                     <label className="swap swap-rotate ">
                         <input type="checkbox" />
