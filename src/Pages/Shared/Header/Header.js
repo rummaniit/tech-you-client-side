@@ -1,13 +1,13 @@
 // import { error } from 'daisyui/src/colors';
 import React from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Authprovider/Authprovider';
 // import image from '../../../images/logoedu.jpg'
 
 const Header = () => {
-    let [hover, setHover] = useState(false)
+    // let [hover, setHover] = useState(false)
     const { users, logOut } = useContext(AuthContext)
     console.log(users);
     let handleLogout = () => {
@@ -17,10 +17,7 @@ const Header = () => {
 
         })
     }
-    let imgStyle = {
-        width: '80px',
-        borderRadius: '50%'
-    }
+
     return (
         <div className='p-8'>
             <nav className='flex justify-around items-center'>

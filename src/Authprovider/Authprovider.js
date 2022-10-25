@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth'
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 import app from '../firebase/firebase.config';
 import { useState } from 'react';
 
@@ -29,6 +29,14 @@ const Authprovider = ({ children }) => {
     const verifyEmail = () => {
         return sendEmailVerification(auth.currentUser)
     }
+    const googleSignIn = (Googleprovider) => {
+        // setLoading(true)
+        return signInWithPopup(auth, Googleprovider)
+    }
+    const gitSignIn = (Gitprovider) => {
+        // setLoading(true)
+        return signInWithPopup(auth, Gitprovider)
+    }
     useEffect(() => {
         let unsubscrube = onAuthStateChanged(auth, (currentUser) => {
             // currentUser === null || currentUser.emailVerified
@@ -52,7 +60,8 @@ const Authprovider = ({ children }) => {
         errors,
         setErrors,
         updatePersonProfile,
-        verifyEmail, setUsers
+        verifyEmail, setUsers,
+        googleSignIn, gitSignIn
     }
     return (
         <div>

@@ -1,10 +1,15 @@
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
+// import { Button, ButtonGroup } from 'react-daisyui';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Authprovider/Authprovider';
+// import { FcGoogle } from "import { FaBeer } from 'react-icons/fa'";
+import { FcGoogle } from 'react-icons/fc'
+import { BsGithub } from 'react-icons/bs'
 
 const Login = () => {
-    let { SignInuser, setErrors, errors, setUsers } = useContext(AuthContext)
+    let { SignInuser, setErrors, errors, setUsers, googleSignIn, gitSignIn } = useContext(AuthContext)
     // console.log(users);
     let handleLogin = (e) => {
         e.preventDefault()
@@ -22,6 +27,29 @@ const Login = () => {
                 setErrors(error.message)
             })
         form.reset()
+    }
+    const Googleprovider = new GoogleAuthProvider();
+    let handlegoogleSignIn = () => {
+        googleSignIn(Googleprovider)
+            .then(result => {
+                let users = result.user
+                // setUsers(users)
+                // console.log(user);
+                setErrors('')
+                console.log(users);
+            })
+            .catch(error => {
+                console.log(error.message);
+                setErrors(error.message)
+            })
+    }
+    const Gitprovider = new GithubAuthProvider();
+    let handleGitSignIn = () => {
+        gitSignIn(Gitprovider)
+            .then(result => {
+                let users = result.user
+                console.log(users);
+            })
     }
     return (
         <div>
@@ -53,7 +81,16 @@ const Login = () => {
                                     errors ? <small className='text-red-900'>{errors}</small> : ''
                                 }
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-primary">Login</button>
+                                    <button className="btn btn-outline btn-accent">Login</button>
+                                </div>
+                                <hr className='mt-4' />
+                                <div className='flex justify-evenly items-center px-10'>
+                                    <div>
+                                        <FcGoogle className='text-3xl' onClick={handlegoogleSignIn}></FcGoogle>
+                                    </div>
+                                    <div>
+                                        <BsGithub className='text-3xl' onClick={handleGitSignIn}></BsGithub>
+                                    </div>
                                 </div>
                             </div>
                         </div>
