@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Root/Main/Main";
 import Blog from "../Blog/Blog";
 import Courses from "../Courses/Courses";
+import Error from "../Error/Error";
 import Faq from "../Faq/Faq";
 import Home from "../Home/Home";
 import Login from "../Login/Login";
@@ -11,6 +12,7 @@ export const routes = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <Error></Error>,
         children: ([
             {
                 path: '/',
@@ -35,7 +37,8 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
-            }
+            },
+
         ])
     }
 ])

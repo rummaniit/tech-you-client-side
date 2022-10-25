@@ -1,15 +1,19 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Authprovider/Authprovider';
+// import image from '../../../images/logoedu.jpg'
 
 const Header = () => {
+    const { user } = useContext(AuthContext)
 
     return (
-        <div className=''>
+        <div className='p-8'>
             <nav className='flex justify-between items-center'>
-                <div>
-                    <h2 className="text-4xl">Teach You.com</h2>
+                <div className='flex justify-start items-center'>
+                    <Link to='/'><h2 className="text-4xl">Teach You.com</h2></Link>
                 </div>
-                <div>
+                <div className='mr-8'>
                     <Link className='text-xl p-3' to='/'>Home</Link>
                     <Link className='text-xl p-3' to='/courses'>Courses</Link>
                     <Link className='text-xl p-3' to='/faq'>Faq</Link>
