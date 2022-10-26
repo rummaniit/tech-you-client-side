@@ -11,7 +11,7 @@ const Coursedetails = () => {
     return (
         <div className=''>
             <h1 className='text-5xl mt-44 mb-20'>{course_name}</h1>
-            <button className="btn btn-primary">Button</button>
+            <button className="btn btn-primary">Get pdf of {course_name} course</button>
 
             <div className="card md:card-side bg-base-100 shadow-xl p-4 ">
                 <figure><img src={course_img} style={imageStyle} alt="Album" /></figure>

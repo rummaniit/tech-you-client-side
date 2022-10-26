@@ -20,7 +20,7 @@ const Courses = () => {
                         ></Leftsection>)
                     }
                 </div>
-                <div className='grid grid-cols-2 gap-4'>
+                <div className='grid grid-cols-2 gap-2'>
                     {
                         courses.map(course2 => <Rightsection
                             key={course2.course_id}
