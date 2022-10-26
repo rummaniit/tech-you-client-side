@@ -10,8 +10,10 @@ const Coursedetails = () => {
     let { course_id, author, course_name, course_img, course_price, course_ratings, course_duration, about_course } = Allcourses
     return (
         <div className=''>
+            <h1 className='text-5xl mt-44 mb-20'>{course_name}</h1>
+            <button className="btn btn-primary">Button</button>
 
-            <div className="card md:card-side bg-base-100 shadow-xl p-4 mt-44">
+            <div className="card md:card-side bg-base-100 shadow-xl p-4 ">
                 <figure><img src={course_img} style={imageStyle} alt="Album" /></figure>
                 <div className="card-body text-center">
                     <h2 className="text-center text-4xl font-semibold">{course_name}</h2>

@@ -11,7 +11,7 @@ const Courses = () => {
     return (
         <div>
             <h1 className="text-5xl mt-32 mb-16 font-semibold">All Courses</h1>
-            <div className='courseSection '>
+            <div className='courseSection'>
                 <div>
                     {
                         courses.map(course => <Leftsection

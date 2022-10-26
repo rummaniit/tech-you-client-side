@@ -59,7 +59,7 @@ const Register = () => {
                             <div className="card-body">
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Username</span>
+                                        <span className="label-text">Full Name</span>
                                     </label>
                                     <input type="text" name='name' placeholder="User Name" className="input input-bordered" />
                                 </div>
