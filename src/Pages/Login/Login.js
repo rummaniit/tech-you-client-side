@@ -23,9 +23,14 @@ const Login = () => {
         SignInuser(email, password)
             .then(result => {
                 let users = result.user
-                setUsers(users)
+                // setUsers(users)
                 setErrors('')
-                navigate(from, { replace: true })
+                if (users.emailVerified) {
+                    navigate(from, { replace: true })
+                }
+                else {
+                    alert('please Verify Email')
+                }
                 console.log(users);
             }).catch(error => {
                 setErrors(error.message)

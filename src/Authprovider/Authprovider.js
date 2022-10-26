@@ -32,9 +32,11 @@ const Authprovider = ({ children }) => {
         return signOut(auth)
     }
     const updatePersonProfile = (profile) => {
+        setLoading(true)
         return updateProfile(auth.currentUser, profile)
     }
     const verifyEmail = () => {
+        setLoading(true)
         return sendEmailVerification(auth.currentUser)
     }
     const googleSignIn = (Googleprovider) => {
