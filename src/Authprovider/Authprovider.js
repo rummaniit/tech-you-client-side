@@ -9,6 +9,13 @@ export const AuthContext = createContext()
 const auth = getAuth(app);
 
 const Authprovider = ({ children }) => {
+    let [courses, setCourses] = useState({})
+    console.log(courses);
+    useEffect(() => {
+        fetch('https://teach-you-com-server.vercel.app/courses')
+            .then(res => res.json())
+            .then(data => setCourses(data))
+    }, [])
     let [users, setUsers] = useState('')
     let [errors, setErrors] = useState(null)
     const createUser = (email, password) => {
@@ -61,7 +68,7 @@ const Authprovider = ({ children }) => {
         setErrors,
         updatePersonProfile,
         verifyEmail, setUsers,
-        googleSignIn, gitSignIn
+        googleSignIn, gitSignIn, courses
     }
     return (
         <div>
