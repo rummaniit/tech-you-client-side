@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Rightsection = ({ course2 }) => {
     let imgStyle = {
         width: '500px'
     }
-    let { course_name, course_img, course_price, course_ratings, course_duration, about_course } = course2
+    let { course_id, course_name, course_img, course_price, course_ratings, course_duration, about_course } = course2
     return (
         <div className=''>
             <div className="card w-80 h-full glass">
@@ -20,7 +21,9 @@ const Rightsection = ({ course2 }) => {
                     </div>
 
                     <div className="card-actions justify-center mt-5">
-                        <button className="btn btn-primary">Details</button>
+                        <Link to={`/courses/${course_id}`}>
+                            <button className="btn btn-primary">Details</button>
+                        </Link>
                     </div>
                 </div>
             </div>
