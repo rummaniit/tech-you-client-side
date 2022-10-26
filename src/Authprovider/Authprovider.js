@@ -10,6 +10,7 @@ const auth = getAuth(app);
 
 const Authprovider = ({ children }) => {
     let [courses, setCourses] = useState({})
+    let [loading, setLoading] = useState(true)
     console.log(courses);
     useEffect(() => {
         fetch('https://teach-you-com-server.vercel.app/courses')
@@ -19,15 +20,15 @@ const Authprovider = ({ children }) => {
     let [users, setUsers] = useState('')
     let [errors, setErrors] = useState(null)
     const createUser = (email, password) => {
-        // setLoading(true)
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const SignInuser = (email, password) => {
-        // setLoading(true)
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     const logOut = () => {
-        // setLoading(true)
+        setLoading(true)
         return signOut(auth)
     }
     const updatePersonProfile = (profile) => {
@@ -37,11 +38,11 @@ const Authprovider = ({ children }) => {
         return sendEmailVerification(auth.currentUser)
     }
     const googleSignIn = (Googleprovider) => {
-        // setLoading(true)
+        setLoading(true)
         return signInWithPopup(auth, Googleprovider)
     }
     const gitSignIn = (Gitprovider) => {
-        // setLoading(true)
+        setLoading(true)
         return signInWithPopup(auth, Gitprovider)
     }
     useEffect(() => {
@@ -52,7 +53,7 @@ const Authprovider = ({ children }) => {
                 setUsers(currentUser)
             }
 
-            // setLoading(false)
+            setLoading(false)
         })
         return () => {
             unsubscrube()
@@ -68,7 +69,7 @@ const Authprovider = ({ children }) => {
         setErrors,
         updatePersonProfile,
         verifyEmail, setUsers,
-        googleSignIn, gitSignIn, courses
+        googleSignIn, gitSignIn, courses, setLoading, loading
     }
     return (
         <div>

@@ -2,7 +2,7 @@
 import React from 'react';
 // import { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Authprovider/Authprovider';
 // import image from '../../../images/logoedu.jpg'
 
@@ -10,9 +10,13 @@ const Header = () => {
     // let [hover, setHover] = useState(false)
     const { users, logOut } = useContext(AuthContext)
     console.log(users);
+    let location = useLocation()
+    let from = location.state?.from?.pathname || '/'
+    let navigate = useNavigate()
+
     let handleLogout = () => {
         logOut().then(() => {
-
+            navigate(from, { replace: true })
         }).catch(error => {
 
         })

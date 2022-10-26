@@ -5,7 +5,10 @@ import { AuthContext } from '../../../Authprovider/Authprovider';
 
 const Privateroutes = ({ children }) => {
     let location = useLocation()
-    let { users } = useContext(AuthContext)
+    let { users, loading } = useContext(AuthContext)
+    if (loading) {
+        return <h1>Spinner</h1>
+    }
     if (!users) {
         return <Navigate to='/login' state={{ from: location }} replace></Navigate>
     }

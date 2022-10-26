@@ -40,6 +40,7 @@ const Login = () => {
                 // setUsers(users)
                 // console.log(user);
                 setErrors('')
+                navigate(from, { replace: true })
                 console.log(users);
             })
             .catch(error => {
@@ -52,6 +53,8 @@ const Login = () => {
         gitSignIn(Gitprovider)
             .then(result => {
                 let users = result.user
+                setErrors('')
+                navigate(from, { replace: true })
                 console.log(users);
             })
     }
