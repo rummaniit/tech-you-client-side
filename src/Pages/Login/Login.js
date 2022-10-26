@@ -2,7 +2,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useContext } from 'react';
 // import { Button, ButtonGroup } from 'react-daisyui';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Authprovider/Authprovider';
 // import { FcGoogle } from "import { FaBeer } from 'react-icons/fa'";
 import { FcGoogle } from 'react-icons/fc'
@@ -10,6 +10,9 @@ import { BsGithub } from 'react-icons/bs'
 
 const Login = () => {
     let { SignInuser, setErrors, errors, setUsers, googleSignIn, gitSignIn } = useContext(AuthContext)
+    let location = useLocation()
+    let from = location.state?.from?.pathname || '/'
+    let navigate = useNavigate()
     // console.log(users);
     let handleLogin = (e) => {
         e.preventDefault()
@@ -22,6 +25,7 @@ const Login = () => {
                 let users = result.user
                 setUsers(users)
                 setErrors('')
+                navigate(from, { replace: true })
                 console.log(users);
             }).catch(error => {
                 setErrors(error.message)
