@@ -9,7 +9,7 @@ import { FcGoogle } from 'react-icons/fc'
 import { BsGithub } from 'react-icons/bs'
 
 const Login = () => {
-    let { SignInuser, setErrors, errors, setUsers, googleSignIn, gitSignIn } = useContext(AuthContext)
+    let { SignInuser, setErrors, errors, setUsers, googleSignIn, gitSignIn, passwordResetMail } = useContext(AuthContext)
     let location = useLocation()
     let from = location.state?.from?.pathname || '/'
     let navigate = useNavigate()
@@ -63,6 +63,16 @@ const Login = () => {
                 console.log(users);
             })
     }
+    let handleResetPass = () => {
+        passwordResetMail()
+            .then((result) => {
+                let user = result.user
+            })
+            .catch((error) => {
+                console.log(error.message);
+                // ..
+            });
+    }
     return (
         <div>
             <form onSubmit={handleLogin}>
@@ -95,6 +105,7 @@ const Login = () => {
                                 <div className="form-control mt-6">
                                     <button className="btn btn-outline btn-accent">Login</button>
                                 </div>
+                                <small>Foget Password? <Link onClick={handleResetPass}>Reset Password</Link></small>
                                 <hr className='mt-4' />
                                 <div className='flex justify-evenly items-center px-10'>
                                     <div>

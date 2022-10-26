@@ -11,6 +11,7 @@ const Courses = () => {
     return (
         <div>
             <h1 className="text-5xl mt-32 mb-16 font-semibold">All Courses</h1>
+            <hr className='m-20' />
             <div className='courseSection'>
                 <div>
                     {
@@ -20,7 +21,7 @@ const Courses = () => {
                         ></Leftsection>)
                     }
                 </div>
-                <div className='grid grid-cols-2 gap-2'>
+                <div className='grid grid-cols-2 gap-4'>
                     {
                         courses.map(course2 => <Rightsection
                             key={course2.course_id}

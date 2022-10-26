@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { createContext } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 import app from '../firebase/firebase.config';
 import { useState } from 'react';
 
@@ -47,6 +47,9 @@ const Authprovider = ({ children }) => {
         setLoading(true)
         return signInWithPopup(auth, Gitprovider)
     }
+    let passwordResetMail = (email) => {
+        sendPasswordResetEmail(auth, email)
+    }
     useEffect(() => {
         let unsubscrube = onAuthStateChanged(auth, (currentUser) => {
             // currentUser === null || currentUser.emailVerified
@@ -71,7 +74,8 @@ const Authprovider = ({ children }) => {
         setErrors,
         updatePersonProfile,
         verifyEmail, setUsers,
-        googleSignIn, gitSignIn, courses, setLoading, loading
+        googleSignIn, gitSignIn, courses, setLoading, loading,
+        passwordResetMail
     }
     return (
         <div>
