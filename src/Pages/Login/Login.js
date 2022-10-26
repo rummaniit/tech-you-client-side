@@ -9,7 +9,7 @@ import { FcGoogle } from 'react-icons/fc'
 import { BsGithub } from 'react-icons/bs'
 
 const Login = () => {
-    let { SignInuser, setErrors, errors, setUsers, googleSignIn, gitSignIn, passwordResetMail } = useContext(AuthContext)
+    let { SignInuser, setErrors, errors, setUsers, users, googleSignIn, gitSignIn, passwordResetMail } = useContext(AuthContext)
     let location = useLocation()
     let from = location.state?.from?.pathname || '/'
     let navigate = useNavigate()
@@ -33,6 +33,7 @@ const Login = () => {
                 }
                 console.log(users);
             }).catch(error => {
+                // handleResetPass(email)
                 setErrors(error.message)
             })
         form.reset()
@@ -49,6 +50,7 @@ const Login = () => {
                 console.log(users);
             })
             .catch(error => {
+
                 console.log(error.message);
                 setErrors(error.message)
             })
@@ -63,8 +65,8 @@ const Login = () => {
                 console.log(users);
             })
     }
-    let handleResetPass = () => {
-        passwordResetMail()
+    let handleResetPass = (email) => {
+        passwordResetMail(email)
             .then((result) => {
                 let user = result.user
             })

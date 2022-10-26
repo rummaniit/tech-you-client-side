@@ -1,5 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Authprovider/Authprovider';
 
@@ -18,6 +19,7 @@ const Register = () => {
                 const users = result.user
                 // form.reset()
                 setErrors('')
+                handleToast()
                 handleEmailVerification()
                 handleProfileUpdate(name, photoURL)
                 console.log(users);
@@ -45,6 +47,9 @@ const Register = () => {
         verifyEmail().then(result => {
 
         }).catch(error => console.log(error.message))
+    }
+    let handleToast = () => {
+        toast.success('Successfully toasted!')
     }
     return (
         <div>

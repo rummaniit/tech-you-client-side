@@ -47,9 +47,9 @@ const Authprovider = ({ children }) => {
         setLoading(true)
         return signInWithPopup(auth, Gitprovider)
     }
-    let passwordResetMail = (email) => {
-        sendPasswordResetEmail(auth, email)
-    }
+    // let passwordResetMail = (email) => {
+    //     sendPasswordResetEmail(auth, email)
+    // }
     useEffect(() => {
         let unsubscrube = onAuthStateChanged(auth, (currentUser) => {
             // currentUser === null || currentUser.emailVerified
@@ -75,7 +75,7 @@ const Authprovider = ({ children }) => {
         updatePersonProfile,
         verifyEmail, setUsers,
         googleSignIn, gitSignIn, courses, setLoading, loading,
-        passwordResetMail
+        // passwordResetMail
     }
     return (
         <div>
