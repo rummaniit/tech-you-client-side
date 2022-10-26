@@ -9,7 +9,7 @@ export const AuthContext = createContext()
 const auth = getAuth(app);
 
 const Authprovider = ({ children }) => {
-    let [courses, setCourses] = useState({})
+    let [courses, setCourses] = useState([])
     let [loading, setLoading] = useState(true)
     console.log(courses);
     useEffect(() => {

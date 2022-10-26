@@ -4,6 +4,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Authprovider/Authprovider';
+// import logo from '../../../logo.svg'
 // import image from '../../../images/logoedu.jpg'
 
 const Header = () => {
@@ -26,6 +27,19 @@ const Header = () => {
         <div className='p-8'>
             <nav className='flex justify-around items-center'>
                 <div className='flex justify-start items-center'>
+                    {/* <img src={logo} alt="" /> */}
+                    <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        fill='none'
+                        stroke='currentColor'
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth='2'
+                        className='w-24 h-24 text-white p-2 bg-gray-900 rounded-full'
+                        viewBox='0 0 24 24'
+                    >
+                        <path d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"></path>
+                    </svg>
                     <Link to='/'><h2 className="text-4xl">Teach You.com</h2></Link>
                 </div>
                 <div>

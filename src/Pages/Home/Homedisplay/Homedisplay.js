@@ -12,7 +12,7 @@ const Homedisplay = ({ crs }) => {
                 <figure><img src={course_img} style={imgStyle} alt="car!" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{course_name}</h2>
-                    <p>{about_course}</p>
+                    <p>{(about_course).slice(0, 50) + '....'}</p>
 
                     <div className='flex justify-around'>
                         <h4 className="badge badge-secondary h-10 m-3">Ratings: {course_ratings}</h4>
@@ -20,6 +20,11 @@ const Homedisplay = ({ crs }) => {
                         <h4 className="badge badge-secondary h-10 m-3">Price: {course_price}</h4>
                     </div>
 
+                    <div className="card-actions justify-center mt-5">
+                        <Link to={`/courses/${course_id}`}>
+                            <button className="btn btn-primary">Details</button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
