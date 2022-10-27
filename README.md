@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
 # website name:==> Teach You.com
+# Live Link==>https://teachyoucom-7ea53.web.app/
 <!-- 
 CSS components==> 1)Tailwind 2)DaisyUi 3)Mamba Ui 4)Vanila CSS
 Backend==>Firebase

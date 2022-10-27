@@ -46,7 +46,7 @@ const Coursedetails = () => {
             {/* <button className="btn btn-primary">Get pdf of {course_name} course</button> */}
             <PDFDownloadLink document={<MyDoc />} fileName="detail.pdf">
 
-                <button className=' px-8 py-3 font-semibold rounded-md hover:text-white text-gray-100 tracking-wide transition duration-200 shadow-md bg-green-400 hover:bg-slate-700 focus:shadow-outline focus:outline-none'>Download PDF</button>
+                <button className='w-full mx-auto px-8 py-3 font-semibold rounded-md hover:text-white text-gray-100 tracking-wide transition duration-200 shadow-md bg-green-400 hover:bg-slate-700 focus:shadow-outline focus:outline-none'>Download PDF</button>
 
             </PDFDownloadLink>
 
