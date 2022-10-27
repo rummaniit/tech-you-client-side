@@ -1,12 +1,24 @@
 .hamburger {
     position: relative;
-    top: -28px;
+    top: -120px;
 }
 
 .links {
-    background-color: blue;
+    background-color: rgb(59, 59, 56);
+    /* color: black; */
+    color: rgb(198, 192, 192);
     position: absolute;
-    top: 148px;
-    left: -2px;
+    top: 55px;
+    left: 5px;
+    z-index: 1;
+}
+
+.links2 {
+    background-color: #F7DF1E;
+    /* color: black; */
+    color: black;
+    position: absolute;
+    top: 55px;
+    left: 5px;
     z-index: 1;
 }

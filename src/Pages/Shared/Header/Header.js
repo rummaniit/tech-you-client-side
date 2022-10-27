@@ -13,7 +13,7 @@ const Header = () => {
     let [display, setDisplay] = useState(false)
     console.log(display);
     // let [hover, setHover] = useState(false)
-    const { users, logOut, toggleTheme } = useContext(AuthContext)
+    const { users, logOut, toggleTheme, theme } = useContext(AuthContext)
     console.log(users);
     let location = useLocation()
     let from = location.state?.from?.pathname || '/'
@@ -101,7 +101,8 @@ const Header = () => {
                 </svg>
                 </p>
                 {
-                    display ? <div className='links md:hidden '>
+                    display ? <div className={theme === 'dark' ? 'links' : 'links2'}
+                    >
                         <p><NavLink className='text-xl p-3' style={({ isActive }) =>
                             isActive ? activeStyle : undefined
                         } to='/' end>Home</NavLink></p>
@@ -119,11 +120,11 @@ const Header = () => {
                             users ?
                                 <>
                                     {/* <img src={users.photoURL} style={imgStyle} alt="" /> */}
-                                    <Link className='text-xl p-3' onClick={handleLogout}>Log Out</Link>
+                                    <p><Link className='text-xl p-3' onClick={handleLogout}>Log Out</Link></p>
                                 </> :
                                 <>
-                                    <Link className='text-xl p-3' to='/login'>Login</Link>
-                                    <Link className='text-xl p-3' to='/register'>Register</Link>
+                                    <p><Link className='text-xl p-3' to='/login'>Login</Link></p>
+                                    <p><Link className='text-xl p-3' to='/register'>Register</Link></p>
                                 </>
                         }
 
@@ -135,8 +136,8 @@ const Header = () => {
                     </div> : ''
                 }
 
-            </nav>
-        </div>
+            </nav >
+        </div >
     );
 };
 
