@@ -30,10 +30,11 @@ const Register = () => {
             })
 
     }
-    let handleProfileUpdate = (name, photoURL) => {
+    let handleProfileUpdate = (name, photoURL, mobile) => {
         const profile = {
             displayName: name,
-            photoURL: photoURL
+            photoURL: photoURL,
+            mobile: mobile
         }
         updatePersonProfile(profile)
             .then(result => {

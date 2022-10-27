@@ -22,6 +22,9 @@ const Header = () => {
 
         })
     }
+    let navigateToProfilePage = () => {
+        navigate('/profile')
+    }
 
     return (
         <div className='p-8'>
@@ -44,7 +47,7 @@ const Header = () => {
                 </div>
                 <div>
                     {
-                        users ? <img src={users.photoURL} title={users.displayName} style={{
+                        users ? <img onClick={navigateToProfilePage} src={users.photoURL} title={users.displayName} style={{
                             width: '80px',
                             borderRadius: '50%',
                         }} alt="" /> : ''

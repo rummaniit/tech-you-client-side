@@ -24,7 +24,7 @@ const Login = () => {
         SignInuser(email, password)
             .then(result => {
                 let users = result.user
-                // setUsers(users)
+                setUsers(users)
                 setErrors('')
                 if (users.emailVerified) {
                     navigate(from, { replace: true })

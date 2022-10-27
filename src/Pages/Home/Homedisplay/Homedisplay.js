@@ -15,9 +15,9 @@ const Homedisplay = ({ crs }) => {
                     <p>{(about_course).slice(0, 50) + '....'}</p>
 
                     <div className='flex justify-around'>
-                        <h4 className="badge badge-secondary h-10 m-3">Ratings: {course_ratings}</h4>
-                        <h4 className="badge badge-secondary h-10 m-3">Durations: {course_duration}</h4>
-                        <h4 className="badge badge-secondary h-10 m-3">Price: {course_price}</h4>
+                        <h4 className="badge-primary h-12 m-3">Ratings: {course_ratings}</h4>
+                        <h4 className="badge-primary h-12 m-3">Durations: {course_duration}</h4>
+                        <h4 className="badge-primary h-12 m-3">Price: {course_price}</h4>
                     </div>
 
                     <div className="card-actions justify-center mt-5">
