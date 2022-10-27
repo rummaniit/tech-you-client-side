@@ -10,7 +10,6 @@ const Checkout = () => {
 
     return (
         <div>
-
             <section className="py-20 p-12  dark:text-blue-500">
                 <div className="container px-4 mx-auto">
                     <div className="max-w-2xl mx-auto mb-16 text-center">
