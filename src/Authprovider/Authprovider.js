@@ -9,6 +9,23 @@ export const AuthContext = createContext()
 const auth = getAuth(app);
 
 const Authprovider = ({ children }) => {
+    const [theme, setTheme] = useState(
+        localStorage.getItem('theme') || 'dark'
+    );
+    const toggleTheme = () => {
+        if (theme === 'light') {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+    }
+    useEffect(() => {
+        localStorage.setItem('theme', theme);
+        document.body.className = theme;
+    }, [theme]);
+
+
+
     let [courses, setCourses] = useState([])
     let [loading, setLoading] = useState(true)
     console.log(courses);
@@ -65,6 +82,7 @@ const Authprovider = ({ children }) => {
         }
     }, [])
 
+
     let authInfo = {
         createUser,
         SignInuser,
@@ -74,11 +92,12 @@ const Authprovider = ({ children }) => {
         setErrors,
         updatePersonProfile,
         verifyEmail, setUsers,
-        googleSignIn, gitSignIn, courses, setLoading, loading,
+        googleSignIn, gitSignIn, courses, setLoading, loading, theme, setTheme, toggleTheme
         // passwordResetMail
     }
     return (
         <div>
+
             <AuthContext.Provider value={authInfo}>
                 {children}
             </AuthContext.Provider>

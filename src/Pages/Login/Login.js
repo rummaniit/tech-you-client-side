@@ -7,6 +7,7 @@ import { AuthContext } from '../../Authprovider/Authprovider';
 // import { FcGoogle } from "import { FaBeer } from 'react-icons/fa'";
 import { FcGoogle } from 'react-icons/fc'
 import { BsGithub } from 'react-icons/bs'
+import toast from 'react-hot-toast';
 
 const Login = () => {
     let { SignInuser, setErrors, errors, setUsers, users, googleSignIn, gitSignIn, passwordResetMail } = useContext(AuthContext)
@@ -29,7 +30,7 @@ const Login = () => {
                     navigate(from, { replace: true })
                 }
                 else {
-                    alert('please Verify Email')
+                    handlenotify()
                 }
                 console.log(users);
             }).catch(error => {
@@ -75,10 +76,13 @@ const Login = () => {
                 // ..
             });
     }
+    let handlenotify = () => {
+        toast.success('Verify your mail first')
+    }
     return (
         <div>
             <form onSubmit={handleLogin}>
-                <div className="hero min-h-screen bg-base-200">
+                <div className="hero min-h-screen ">
                     <div className="hero-content flex-col ">
                         <div className="text-center lg:text-left">
                             <h1 className="text-3xl font-bold">Login now!</h1>

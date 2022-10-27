@@ -49,12 +49,12 @@ const Register = () => {
         }).catch(error => console.log(error.message))
     }
     let handleToast = () => {
-        toast.success('Successfully toasted!')
+        toast.success('Please Verify your mail')
     }
     return (
         <div>
             <form onSubmit={handleRegister}>
-                <div className="hero min-h-screen bg-base-200">
+                <div className="hero min-h-screen ">
                     <div className="hero-content flex-col ">
                         <div className="text-center lg:text-left">
                             <h1 className="text-3xl font-bold">Register now!</h1>
