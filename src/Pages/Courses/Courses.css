@@ -3,3 +3,27 @@
     grid-template-columns: 1fr 4fr;
     margin-bottom: 25px;
 }
+
+@media screen and (min-width:900px) {
+    .courseSection {
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (max-width:899px) and (min-width:700px) {
+    .courseSection {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (max-width:699px) {
+    .courseSection {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        margin-bottom: 25px;
+    }
+}

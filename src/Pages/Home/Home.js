@@ -12,7 +12,7 @@ const Home = () => {
             {
                 users ? <h1 className='text-2xl m-10'>Welcome to <small className='text-3xl'>Teach You.com</small> <br /> <small className='text-5xl text-green-700 font-bold'>{users.displayName}</small></h1> : ''
             }
-            <div className='md:grid grid-cols-2 gap-y-4 px-32 mt-16 w-full mx-auto'>
+            <div className='md:grid grid-cols-2 gap-4 w-full mx-auto p-12'>
                 {
                     courses.slice(0, 4).map(crs => <Homedisplay
                         key={crs.course_id}

@@ -8,9 +8,12 @@ import { AuthContext } from '../../Authprovider/Authprovider';
 import { FcGoogle } from 'react-icons/fc'
 import { BsGithub } from 'react-icons/bs'
 import toast from 'react-hot-toast';
+import { useState } from 'react';
 
 const Login = () => {
     let { SignInuser, setErrors, errors, setUsers, users, googleSignIn, gitSignIn, passwordResetMail } = useContext(AuthContext)
+    let [usermail, setusermail] = useState('')
+
     let location = useLocation()
     let from = location.state?.from?.pathname || '/'
     let navigate = useNavigate()
@@ -37,7 +40,7 @@ const Login = () => {
                 // handleResetPass(email)
                 setErrors(error.message)
             })
-        form.reset()
+        // form.reset()
     }
     const Googleprovider = new GoogleAuthProvider();
     let handlegoogleSignIn = () => {
@@ -66,10 +69,10 @@ const Login = () => {
                 console.log(users);
             })
     }
-    let handleResetPass = (email) => {
-        passwordResetMail(email)
-            .then((result) => {
-                let user = result.user
+    let handleResetPass = () => {
+        passwordResetMail(usermail)
+            .then(() => {
+                toast.success('reset Mail has been sent')
             })
             .catch((error) => {
                 console.log(error.message);
@@ -94,7 +97,10 @@ const Login = () => {
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" name='email' placeholder="email" className="input input-bordered" />
+                                    <input type="email" id='email' name='email' placeholder="email"
+                                        onBlur={e => {
+                                            setusermail(e.target.value)
+                                        }} className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -111,7 +117,7 @@ const Login = () => {
                                 <div className="form-control mt-6">
                                     <button className="btn btn-outline btn-accent">Login</button>
                                 </div>
-                                <small>Foget Password? <Link onClick={handleResetPass}>Reset Password</Link></small>
+                                <small>Foget Password? <Link onClick={handleResetPass} className='text-blue-500'>Reset Password</Link></small>
                                 <hr className='mt-4' />
                                 <div className='flex justify-evenly items-center px-10'>
                                     <div>

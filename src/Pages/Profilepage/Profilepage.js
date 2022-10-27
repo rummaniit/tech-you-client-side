@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
+import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Authprovider/Authprovider';
+// import Header from "./Header";
+
 
 const Profilepage = () => {
     let { users } = useContext(AuthContext)
     console.log(users);
 
+
     return (
         <div>
+
             <div className="w-auto mx-auto  p-24 sm:flex sm:space-x-6 dark:bg-gray-900 dark:text-gray-100">
                 <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
                     <img src={users.photoURL} alt="" className="object-cover object-center w-full h-full  dark:bg-gray-500" />

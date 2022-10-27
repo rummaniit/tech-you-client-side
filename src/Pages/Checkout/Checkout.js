@@ -1,16 +1,27 @@
 import React from 'react';
+import { useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const Checkout = () => {
+    let [cart, setCart] = useState(0)
     let data = useLoaderData()
     console.log(data);
+    let handleToast = () => {
+        setCart(cart + 1)
+        toast.success('Add to Cart')
+    }
     return (
         <div>
-            <section className="py-20 dark:bg-gray-800 dark:text-gray-100">
+            <button className="btn gap-2">
+                Inbox
+                <div className="badge badge-secondary">{cart}</div>
+            </button>
+            <section className="py-20 p-12  dark:text-blue-500">
                 <div className="container px-4 mx-auto">
                     <div className="max-w-2xl mx-auto mb-16 text-center">
-                        <span className="font-bold tracking-wider uppercase dark:text-violet-400">Pricing</span>
-                        <h2 className="text-4xl font-bold md:text-5xl">Choose your best <h1 className="text-5xl font-bold text-blue-900">{data.course_name}</h1> plan</h2>
+                        {/* <span className="font-bold tracking-wider uppercase dark:text-violet-400">Pricing</span> */}
+                        <h2 className="text-4xl font-bold md:text-5xl">Choose your best <h1 className="text-5xl font-bold text-green-900">{data.course_name}</h1> plan</h2>
                     </div>
                     <div className="flex flex-wrap items-stretch -mx-4">
                         <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
@@ -117,7 +128,7 @@ const Checkout = () => {
                                         <span>Chance For Internship</span>
                                     </li>
                                 </ul>
-                                <Link rel="noopener noreferrer" href="#" className="inline-block w-full px-5 py-3 font-semibold tracking-wider text-center rounded dark:bg-violet-400 dark:text-gray-900">Get Started</Link>
+                                <Link rel="noopener noreferrer" href="#" className="inline-block w-full px-5 py-3 font-semibold tracking-wider text-center rounded dark:bg-violet-400 dark:text-gray-900" onClick={handleToast}>Get Started</Link>
                             </div>
                         </div>
                     </div>

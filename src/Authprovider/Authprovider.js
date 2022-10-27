@@ -28,6 +28,7 @@ const Authprovider = ({ children }) => {
 
     let [courses, setCourses] = useState([])
     let [loading, setLoading] = useState(true)
+
     console.log(courses);
     useEffect(() => {
         fetch('https://teach-you-com-server.vercel.app/courses')
@@ -36,6 +37,7 @@ const Authprovider = ({ children }) => {
     }, [])
     let [users, setUsers] = useState('')
     let [errors, setErrors] = useState(null)
+
     const createUser = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
@@ -64,9 +66,11 @@ const Authprovider = ({ children }) => {
         setLoading(true)
         return signInWithPopup(auth, Gitprovider)
     }
-    // let passwordResetMail = (email) => {
-    //     sendPasswordResetEmail(auth, email)
-    // }
+
+    let passwordResetMail = (email) => {
+        return sendPasswordResetEmail(auth, email)
+    }
+
     useEffect(() => {
         let unsubscrube = onAuthStateChanged(auth, (currentUser) => {
             // currentUser === null || currentUser.emailVerified
@@ -92,8 +96,8 @@ const Authprovider = ({ children }) => {
         setErrors,
         updatePersonProfile,
         verifyEmail, setUsers,
-        googleSignIn, gitSignIn, courses, setLoading, loading, theme, setTheme, toggleTheme
-        // passwordResetMail
+        googleSignIn, gitSignIn, courses, setLoading, loading, theme, setTheme, toggleTheme,
+        passwordResetMail
     }
     return (
         <div>
