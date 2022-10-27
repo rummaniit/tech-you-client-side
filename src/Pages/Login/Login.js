@@ -11,8 +11,9 @@ import toast from 'react-hot-toast';
 import { useState } from 'react';
 
 const Login = () => {
+    let [usermail, setUsermail] = useState('')
+    console.log(usermail);
     let { SignInuser, setErrors, errors, setUsers, users, googleSignIn, gitSignIn, passwordResetMail } = useContext(AuthContext)
-    let [usermail, setusermail] = useState('')
 
     let location = useLocation()
     let from = location.state?.from?.pathname || '/'
@@ -99,7 +100,8 @@ const Login = () => {
                                     </label>
                                     <input type="email" id='email' name='email' placeholder="email"
                                         onBlur={e => {
-                                            setusermail(e.target.value)
+                                            e.preventDefault()
+                                            setUsermail(e.target.value)
                                         }} className="input input-bordered" />
                                 </div>
                                 <div className="form-control">

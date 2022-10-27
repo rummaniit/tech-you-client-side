@@ -1,4 +1,12 @@
 .hamburger {
     position: relative;
-    top: -45px;
+    top: -28px;
+}
+
+.links {
+    background-color: blue;
+    position: absolute;
+    top: 148px;
+    left: -2px;
+    z-index: 1;
 }
