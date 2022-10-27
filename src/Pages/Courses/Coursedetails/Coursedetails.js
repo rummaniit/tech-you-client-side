@@ -19,9 +19,9 @@ const Coursedetails = () => {
                     <h2 className="text-center text-4xl font-semibold">{course_name}</h2>
                     <p>{about_course}</p>
                     <div className='flex justify-around items-center'>
-                        <small className='text-xl font-bold  m-6'>Price: {course_price}</small>
-                        <small className='text-xl font-bold  m-6'>Ratings: {course_ratings}</small>
-                        <small className='text-xl font-bold  m-6'>Duration: {course_duration}</small>
+                        <small className='text-xl font-bold h-10 m-6'>Price: {course_price}</small>
+                        <small className='text-xl font-bold h-10 m-6'>Ratings: {course_ratings}</small>
+                        <small className='text-xl font-bold h-10 m-6'>Duration: {course_duration}</small>
                     </div>
                     <div>
                         <h1 className="text-3xl">Autho Information</h1>
