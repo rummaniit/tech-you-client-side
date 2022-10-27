@@ -2,21 +2,20 @@
 
 # website name:==> Teach You.com
 # Live Link==>https://teachyoucom-7ea53.web.app/
-<!-- 
-CSS components==> 1)Tailwind 2)DaisyUi 3)Mamba Ui 4)Vanila CSS
-Backend==>Firebase
-Routes==>react router dom
-icons==>react icons
-toast==>react-hot-toast
-process==>Home==>4 courses are shown
-courses==>go to all courses ,if any course clicked then it will take the user deatils page and user is not 
-logged in then he/she has to must login of if he/she doesnot have account then must register to get the preimium acces.Then they can start course and count down will start
-Faq==>Frequently Asked question
-blog==>diffent topic article
-dark/light mode==>toggle to dark or light mode
+# CSS components==> 1)Tailwind 2)DaisyUi 3)Mamba Ui 4)Vanila CSS
+# Backend==>Firebase
+# Routes==>react router dom
+# icons==>react icons
+# toast==>react-hot-toast
+# process==>Home==>4 courses are shown
+# courses==>go to all courses ,if any course clicked then it will take the user deatils page and user is not 
+# logged in then he/she has to must login of if he/she doesnot have account then must register to get the preimium acces.Then they can start course and count down will start
+# Faq==>Frequently Asked question
+# blog==>diffent topic article
+# dark/light mode==>toggle to dark or light mode
+# 
 
-
- -->
+ 
 
 
 
