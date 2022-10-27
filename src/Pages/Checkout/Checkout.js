@@ -4,19 +4,13 @@ import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const Checkout = () => {
-    let [cart, setCart] = useState(0)
+
     let data = useLoaderData()
     console.log(data);
-    let handleToast = () => {
-        setCart(cart + 1)
-        toast.success('Add to Cart')
-    }
+
     return (
         <div>
-            <button className="btn gap-2">
-                Inbox
-                <div className="badge badge-secondary">{cart}</div>
-            </button>
+
             <section className="py-20 p-12  dark:text-blue-500">
                 <div className="container px-4 mx-auto">
                     <div className="max-w-2xl mx-auto mb-16 text-center">
@@ -46,7 +40,9 @@ const Checkout = () => {
                                     </li>
 
                                 </ul>
-                                <button type="button" className="inline-block px-5 py-3 font-semibold tracking-wider text-center rounded dark:bg-violet-400 dark:text-gray-900">Get Started</button>
+                                <Link to='/countdown'>
+                                    <button type="button" className="inline-block px-5 py-3 font-semibold tracking-wider text-center rounded dark:bg-violet-400 dark:text-gray-900">Get Started</button>
+                                </Link>
                             </div>
                         </div>
                         <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
@@ -84,7 +80,7 @@ const Checkout = () => {
                                         <span>Home Works</span>
                                     </li>
                                 </ul>
-                                <Link rel="noopener noreferrer" href="#" className="inline-block w-full px-5 py-3 font-bold tracking-wider text-center rounded dark:bg-gray-800 dark:text-violet-400">Get Started</Link>
+                                <Link rel="noopener noreferrer" to='/countdown' className="inline-block w-full px-5 py-3 font-bold tracking-wider text-center rounded dark:bg-gray-800 dark:text-violet-400">Get Started</Link>
                             </div>
                         </div>
                         <div className="w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
@@ -128,7 +124,7 @@ const Checkout = () => {
                                         <span>Chance For Internship</span>
                                     </li>
                                 </ul>
-                                <Link rel="noopener noreferrer" href="#" className="inline-block w-full px-5 py-3 font-semibold tracking-wider text-center rounded dark:bg-violet-400 dark:text-gray-900" onClick={handleToast}>Get Started</Link>
+                                <Link rel="noopener noreferrer" to='/countdown' className="inline-block w-full px-5 py-3 font-semibold tracking-wider text-center rounded dark:bg-violet-400 dark:text-gray-900" >Get Started</Link>
                             </div>
                         </div>
                     </div>

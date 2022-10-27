@@ -4,6 +4,7 @@ import Blog from "../Blog/Blog";
 import Checkout from "../Checkout/Checkout";
 import Coursedetails from "../Courses/Coursedetails/Coursedetails";
 import Courses from "../Courses/Courses";
+import CountDown from "../CoutDown/CountDown";
 import Error from "../Error/Error";
 import Faq from "../Faq/Faq";
 import Home from "../Home/Home";
@@ -61,6 +62,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/countdown',
+                element: <CountDown></CountDown>
             },
 
         ])
